@@ -1,0 +1,24 @@
+forward = {">"}
+backward = {"<"}
+increment = {"+"}
+decrement = {"-"}
+output = {"."}
+input = {","}
+start_of_loop = _{"["}
+end_of_loop = _{"]"}
+
+
+command = _{forward | backward | increment | decrement | output | input }
+while_loop = {start_of_loop ~ (command | while_loop)* ~ end_of_loop}
+
+
+symbol = _{command | start_of_loop | end_of_loop}
+WHITESPACE = _{!symbol ~ ANY}
+
+program = {(command | while_loop | WHITESPACE)+}
+
+file = {
+    SOI ~
+    program ~
+    EOI
+}
