@@ -13,3 +13,6 @@ pest = "2.0"
 pest_derive = "2.0"
 pest_ascii_tree = "0.1.0"
 zmq = { version= "0.9", features = ["vendored"] }
+
+[dev-dependencies]
+pretty_assertions = "1.0.0"

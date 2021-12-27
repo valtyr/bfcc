@@ -1,8 +1,9 @@
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum IRNode {
-    ForwardBackward(i32),
-    IncrementDecrement(i32),
-    Output,
-    Input,
+    Move(i32),
+    Add { value: i32, offset: i32 },
+    Zero { offset: i32 },
+    Output { offset: i32 },
+    Input { offset: i32 },
     Loop { children: Vec<IRNode> },
 }
