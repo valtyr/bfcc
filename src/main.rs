@@ -8,6 +8,7 @@ use clap::{App, Arg, SubCommand};
 mod commands;
 mod interpreter;
 mod parser;
+mod transpiler;
 mod utils;
 
 fn main() {
@@ -59,7 +60,6 @@ fn main() {
                     Arg::with_name("output")
                         .short("o")
                         .help("Output path")
-                        .required(true)
                         .takes_value(true),
                 )
                 .about("Generate C from Brainfuck"),
