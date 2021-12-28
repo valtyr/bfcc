@@ -62,8 +62,8 @@ These websites have served as great references during development:
 ```diff
 # 𝖆𝖉𝖉𝖊𝖓𝖉𝖚𝖒
 
-+ By the way yes I've seen bfc (https://bfc.wilfred.me.uk/docs/getting-started),
-+ and it's amazing,
++ By the way yes I've seen bfc (https://bfc.wilfred.me.uk),
++ and it's totally amazing
 
 - but I didn't see it until after I had written most of this project
 - and picked a name on crates.io
