@@ -51,25 +51,25 @@ These websites have served as great references during development:
 - [ ] Add a command that generates LLVM IR, and compiles to a binary
 
 <br/>
-<br/>
-
-<i>
-<b>
-<p align="center">
-<sub>
-Addendum
-</sub>
-<p>
-</b>
-</i>
-
-```diff
-+ By the way yes I've seen bfc( https://bfc.wilfred.me.uk/docs/getting-started), and it's amazing,
-- but I didn't see it until after I had written most of this project and picked a name on crates.io
-! So sue me
-@@ 😖 @@
-```
 
 <h3 align="center">
 🧠 🦀
 </h3>
+
+<br/>
+<br/>
+
+```diff
+# 𝖆𝖉𝖉𝖊𝖓𝖉𝖚𝖒
+
++ By the way yes I've seen bfc (https://bfc.wilfred.me.uk/docs/getting-started),
++ and it's amazing,
+
+- but I didn't see it until after I had written most of this project
+- and picked a name on crates.io
+
+@@ Sue me @@
+
+! 😓
+```
+
