@@ -13,12 +13,15 @@ pub fn c_for_node(line_vec: &mut Vec<String>, node: IRNode, indent: u16) {
                 line_vec.push(format!("{}ptr -= {};", spaces, -count));
             }
         }
-        IRNode::Add { value: by, offset } => {
-            if by > 0 {
-                line_vec.push(format!("{}ptr[{}] += {};", spaces, offset, by));
-            } else if by < 0 {
-                line_vec.push(format!("{}ptr[{}] -= {};", spaces, offset, -by));
+        IRNode::Add { value, offset } => {
+            if value > 0 {
+                line_vec.push(format!("{}ptr[{}] += {};", spaces, offset, value));
+            } else if value < 0 {
+                line_vec.push(format!("{}ptr[{}] -= {};", spaces, offset, -value));
             }
+        }
+        IRNode::Mul { value, offset } => {
+            line_vec.push(format!("{}ptr[{}] += ptr[0] * {};", spaces, offset, value))
         }
         IRNode::Zero { offset } => line_vec.push(format!("{}ptr[{}] = 0;", spaces, offset)),
         IRNode::Output { offset } => line_vec.push(format!("{}putchar(ptr[{}]);", spaces, offset)),

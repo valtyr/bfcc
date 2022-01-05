@@ -7,6 +7,7 @@ mod transforms;
 pub fn transpile(ast: Vec<Node>) -> String {
     let mut transformed = transforms::from_ast_to_ir(&ast);
     transformed = transforms::fuse_add(transformed);
+    // transformed = transforms::mul_loop_optimization(transformed);
     transformed = transforms::unroll_zero_loops(transformed);
     transformed = transforms::defer_movements(transformed);
     transformed = transforms::fuse_movements(transformed);

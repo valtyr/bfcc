@@ -10,6 +10,10 @@ pub fn defer_movements(branch: Vec<IRNode>) -> Vec<IRNode> {
                 value,
                 offset: offset + accumulated_offset,
             }),
+            IRNode::Mul { value, offset } => transformed.push(IRNode::Mul {
+                value,
+                offset: offset + accumulated_offset,
+            }),
             IRNode::Output { offset } => transformed.push(IRNode::Output {
                 offset: offset + accumulated_offset,
             }),
