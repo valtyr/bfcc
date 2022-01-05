@@ -1,5 +1,5 @@
-extern crate pest;
-use pest::{iterators::Pairs, Parser};
+pub extern crate pest;
+pub use pest::{iterators::Pairs, Parser};
 
 use self::ast::Node;
 

@@ -1,4 +1,6 @@
-#[derive(Debug, Clone, PartialEq, Eq)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 pub enum IRNode {
     Move(i32),
     Add { value: i32, offset: i32 },

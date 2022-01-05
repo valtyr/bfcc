@@ -1,22 +1,22 @@
 use super::ir::IRNode;
 
-pub fn c_for_node(line_vec: &mut Vec<String>, node: IRNode, indent: u16) {
+pub fn c_for_node(line_vec: &mut Vec<String>, node: &IRNode, indent: u16) {
     let spaces = std::iter::repeat(" ")
         .take((indent * 2) as usize)
         .collect::<String>();
 
     match node {
         IRNode::Move(count) => {
-            if count > 0 {
+            if count > &0 {
                 line_vec.push(format!("{}ptr += {};", spaces, count));
-            } else if count < 0 {
+            } else if count < &0 {
                 line_vec.push(format!("{}ptr -= {};", spaces, -count));
             }
         }
         IRNode::Add { value, offset } => {
-            if value > 0 {
+            if value > &0 {
                 line_vec.push(format!("{}ptr[{}] += {};", spaces, offset, value));
-            } else if value < 0 {
+            } else if value < &0 {
                 line_vec.push(format!("{}ptr[{}] -= {};", spaces, offset, -value));
             }
         }

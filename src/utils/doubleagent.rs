@@ -1,10 +1,12 @@
 use crate::interpreter::InterpreterEvents;
 use crate::parser::ast::Node;
 
+#[cfg(not(target_arch = "wasm32"))]
 pub struct DoubleAgent {
     socket: zmq::Socket,
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 impl DoubleAgent {
     pub fn new() -> DoubleAgent {
         let ctx = zmq::Context::new();
@@ -15,6 +17,7 @@ impl DoubleAgent {
     }
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 impl InterpreterEvents for DoubleAgent {
     fn on_instruction(&self, instruction: &Node) {
         let description = match &instruction {

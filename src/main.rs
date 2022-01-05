@@ -72,7 +72,16 @@ fn main() {
         ("debug", Some(cmd)) => commands::debug::run(cmd),
         ("run", Some(cmd)) => commands::interpret::run(cmd),
         ("transpile", Some(cmd)) => commands::transpile::run(cmd),
-        ("spy", Some(cmd)) => commands::spy::run(cmd),
+        ("spy", Some(cmd)) => {
+            #[cfg(not(target_arch = "wasm32"))]
+            commands::spy::run(cmd);
+
+            #[cfg(target_arch = "wasm32")]
+            {
+                println!("Not supported in WASM.");
+                return;
+            }
+        }
         _ => {
             app.print_long_help().expect("");
             ()
